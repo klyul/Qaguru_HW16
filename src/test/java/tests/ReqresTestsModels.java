@@ -68,11 +68,12 @@ public class ReqresTestsModels {
     @Test
     @DisplayName("Unsuccessful login")
     void unSuccessfulLoginWithMissingEmailTest() {
-        String body = "{ \"password\": \"cityslicka\" }";
-
-        given()
+        LoginBodyLombokModel UnsuccessfulBody = new LoginBodyLombokModel();
+        UnsuccessfulBody.setEmail("eve.holt@reqres.in");
+        UnsuccessfulBody.setPassword("cityslicka");
+        LoginResponseLombokModel response = given()
                 .log().uri()
-                .body(body)
+                .body(UnsuccessfulBody)
                 .contentType(JSON)
                 .when()
                 .post("https://reqres.in/api/login")
@@ -80,7 +81,9 @@ public class ReqresTestsModels {
                 .log().status()
                 .log().body()
                 .statusCode(400)
-                .body("error", is("Missing email or username"));
+                .extract().as(LoginResponseLombokModel.class);
+
+        assertThat(response.getToken()).isEqualTo("Missing email or username");
     }
 
     @Test
