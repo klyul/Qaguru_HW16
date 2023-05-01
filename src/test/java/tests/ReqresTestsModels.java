@@ -1,4 +1,7 @@
 package tests;
+import models.LoginBodyLombokModel;
+import models.LoginResponseLombokModel;
+import models.UserModel;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -7,6 +10,7 @@ import static io.qameta.allure.Allure.step;
 import static io.restassured.RestAssured.given;
 import static io.restassured.http.ContentType.JSON;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+import static org.hamcrest.Matchers.is;
 
 @DisplayName("Reqres tests models")
 @Tag("API")
@@ -22,19 +26,19 @@ public class ReqresTestsModels {
     @Test
     @DisplayName("Create user")
     void createUserTest() {
-        String body = "{ \"name\": \"morpheus\", \"job\": \"leader\" }";
-        given()
+        UserModel createBody = new UserModel();
+        createBody.setName("eve.holt@reqres.in");
+        createBody.setJob("cityslicka");
+        UserModel response = given()
                 .log().uri()
-                .body(body)
+                .body(createBody)
                 .contentType(JSON)
                 .when()
                 .post("https://reqres.in/api/users")
                 .then()
                 .log().status()
                 .log().body()
-                .statusCode(201)
-                .body("name", is("morpheus"))
-                .body("job", is("leader"));
+                .statusCode(201).extract().as(UserModel.class);
 
     }
 

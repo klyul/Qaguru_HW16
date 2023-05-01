@@ -5,12 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6f9d719f-d529-4fe5-a771-c33f6b0e1c8e" name="Changes" comment="HW16">
-      <change afterPath="$PROJECT_DIR$/src/test/resources/schemes/status-scheme-response.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/tpl/request.ftl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/tpl/response.ftl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/models/LoginResponseLombokModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/models/UserModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/models/lombok.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/tests/ReqresTestsModels.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/ReqresTestsModels.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,6 +32,11 @@
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="Qaguru_HW16" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Qaguru_HW16" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
               </path>
             </expand>
             <select />
@@ -61,20 +64,46 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Yuliya\IdeaProjects\Qaguru_HW16\src\test\java" />
       <recent name="C:\Users\Yuliya\IdeaProjects\Qaguru_HW16\src\test\java\models" />
     </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="models" />
+    </key>
   </component>
   <component name="RunManager" selected="Gradle.ReqresTestsModels.createUserTest">
+    <configuration name="ReqresTestsModels" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;tests.ReqresTestsModels&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
     <configuration name="ReqresTestsModels.createUserTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -124,6 +153,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.ReqresTestsModels.createUserTest" />
+        <item itemvalue="Gradle.ReqresTestsModels" />
         <item itemvalue="Gradle.ReqresTestsModels.successfulLoginTest" />
       </list>
     </recent_temporary>
@@ -144,7 +174,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682927898172</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="HW16">
+      <created>1682929462651</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1682929462651</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
