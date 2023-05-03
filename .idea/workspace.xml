@@ -78,7 +78,7 @@
       <recent name="models" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.ReqresTestsModels.unSuccessfulLoginWithMissingEmailTest">
+  <component name="RunManager" selected="Gradle.ReqresTestsModels.unSuccessfulLoginWithMissingPasswordTest">
     <configuration name="ReqresTestsModels" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -125,7 +125,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="ReqresTestsModels.successfulLoginTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="ReqresTestsModels.unSuccessfulLoginWithEmptyDataTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -138,7 +138,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;tests.ReqresTestsModels.successfulLoginTest&quot;" />
+            <option value="&quot;tests.ReqresTestsModels.unSuccessfulLoginWithEmptyDataTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -171,12 +171,36 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
+    <configuration name="ReqresTestsModels.unSuccessfulLoginWithMissingPasswordTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;tests.ReqresTestsModels.unSuccessfulLoginWithMissingPasswordTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.ReqresTestsModels.unSuccessfulLoginWithMissingPasswordTest" />
+        <item itemvalue="Gradle.ReqresTestsModels.unSuccessfulLoginWithEmptyDataTest" />
         <item itemvalue="Gradle.ReqresTestsModels.unSuccessfulLoginWithMissingEmailTest" />
         <item itemvalue="Gradle.ReqresTestsModels.createUserTest" />
         <item itemvalue="Gradle.ReqresTestsModels" />
-        <item itemvalue="Gradle.ReqresTestsModels.successfulLoginTest" />
       </list>
     </recent_temporary>
   </component>
@@ -210,7 +234,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682968214743</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="HW16">
+      <created>1682972531057</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1682972531057</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
