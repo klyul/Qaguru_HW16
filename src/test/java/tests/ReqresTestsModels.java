@@ -40,6 +40,11 @@ public class ReqresTestsModels {
                 .log().body()
                 .statusCode(201).extract().as(UserModel.class);
 
+        step("Check response name", () ->
+                assertThat(createBody.getName()).isEqualTo("eve.holt@reqres.in"));
+        step("Check response job", () ->
+                assertThat(createBody.getJob()).isEqualTo("cityslicka"));
+
     }
 
 
@@ -62,7 +67,8 @@ public class ReqresTestsModels {
             .statusCode(200)
             .extract().as(LoginResponseLombokModel.class);
 
-    assertThat(response.getToken()).isEqualTo("QpwL5tke4Pnpja7X4");
+        step("Verify response", () ->
+    assertThat(response.getToken()).isEqualTo("QpwL5tke4Pnpja7X4"));
 }
 
     @Test
@@ -82,8 +88,8 @@ public class ReqresTestsModels {
                 .log().body()
                 .statusCode(400)
                 .extract().as(LoginResponseLombokModel.class);
-
-        assertThat(response.getToken()).isEqualTo("Missing email or username");
+        step("Check error text", () ->
+        assertThat(response.getToken()).isEqualTo("Missing email or username"));
     }
 
     @Test
@@ -103,6 +109,8 @@ public class ReqresTestsModels {
                 .statusCode(400)
                 .body("error", is(null))
                 .extract().as(LoginResponseLombokModel.class);
+        step("Check response message", () ->
+                assertThat(response.getToken()).isEqualTo("Missing password"));
     }
 
 
@@ -119,7 +127,9 @@ public class ReqresTestsModels {
                 .then()
                 .log().status()
                 .statusCode(415)
-                .extract().as(LoginResponseLombokModel.class);;
+                .extract().as(LoginResponseLombokModel.class);
+        step("Check response message", () ->
+                assertThat(response.getToken()).isEqualTo("Missing password"));
     }
 
 }
