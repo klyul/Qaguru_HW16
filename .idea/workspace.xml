@@ -5,7 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6f9d719f-d529-4fe5-a771-c33f6b0e1c8e" name="Changes" comment="HW16">
+      <change afterPath="$PROJECT_DIR$/src/test/java/models/ErrorModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/tests/ReqresTestsModels.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/ReqresTestsModels.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -78,26 +80,45 @@
       <recent name="models" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.ReqresTestsModels.unSuccessfulLoginWithEmptyDataTest">
-    <configuration name="ReqresTestsModels.createUserTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="Gradle.Qaguru_HW16 [allureServe]">
+    <configuration name="Qaguru_HW16 [allureServe]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
+        <option name="scriptParameters" />
         <option name="taskDescriptions">
           <list />
         </option>
         <option name="taskNames">
           <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;tests.ReqresTestsModels.createUserTest&quot;" />
+            <option value="allureServe" />
           </list>
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="Qaguru_HW16 [downloadAllure]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="downloadAllure" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
       <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
@@ -116,29 +137,6 @@
             <option value=":test" />
             <option value="--tests" />
             <option value="&quot;tests.ReqresTestsModels.successfulLoginTest&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="ReqresTestsModels.unSuccessfulLoginWithEmptyDataTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;tests.ReqresTestsModels.unSuccessfulLoginWithEmptyDataTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -196,10 +194,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.ReqresTestsModels.unSuccessfulLoginWithEmptyDataTest" />
+        <item itemvalue="Gradle.Qaguru_HW16 [allureServe]" />
+        <item itemvalue="Gradle.Qaguru_HW16 [downloadAllure]" />
         <item itemvalue="Gradle.ReqresTestsModels.unSuccessfulLoginWithMissingPasswordTest" />
         <item itemvalue="Gradle.ReqresTestsModels.unSuccessfulLoginWithMissingEmailTest" />
-        <item itemvalue="Gradle.ReqresTestsModels.createUserTest" />
         <item itemvalue="Gradle.ReqresTestsModels.successfulLoginTest" />
       </list>
     </recent_temporary>
@@ -248,7 +246,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683141914786</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="HW16">
+      <created>1683142708131</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1683142708131</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

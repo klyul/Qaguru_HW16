@@ -1,4 +1,6 @@
 package tests;
+import io.restassured.response.ValidatableResponse;
+import models.ErrorModel;
 import models.LoginBodyLombokModel;
 import models.LoginResponseLombokModel;
 import models.UserModel;
@@ -11,6 +13,7 @@ import static io.restassured.RestAssured.given;
 import static io.restassured.http.ContentType.JSON;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.hamcrest.Matchers.is;
+import static specs.LoginSpec.loginRequestSpec;
 
 @DisplayName("Reqres tests models")
 @Tag("API")
@@ -29,21 +32,20 @@ public class ReqresTestsModels {
         UserModel createBody = new UserModel();
         createBody.setName("eve.holt@reqres.in");
         createBody.setJob("cityslicka");
-        UserModel response = given()
-                .log().uri()
-                .body(createBody)
-                .contentType(JSON)
-                .when()
-                .post("https://reqres.in/api/users")
-                .then()
-                .log().status()
-                .log().body()
-                .statusCode(201).extract().as(UserModel.class);
+        UserModel response = step("Create user", () ->
+                given(loginRequestSpec)
+                        .body(createBody)
+                        .when()
+                        .post("https://reqres.in/api/users")
+                        .then()
+                        .log().status()
+                        .log().body()
+                        .statusCode(201).extract().as(UserModel.class));
 
         step("Check response name", () ->
-                assertThat(createBody.getName()).isEqualTo("eve.holt@reqres.in"));
+                assertThat(response.getName()).isEqualTo("eve.holt@reqres.in"));
         step("Check response job", () ->
-                assertThat(createBody.getJob()).isEqualTo("cityslicka"));
+                assertThat(response.getJob()).isEqualTo("cityslicka"));
 
     }
 
@@ -51,85 +53,80 @@ public class ReqresTestsModels {
     @Test
     @DisplayName("Successful login")
     void successfulLoginTest() {
-    LoginBodyLombokModel loginBody = new LoginBodyLombokModel();
+        LoginBodyLombokModel loginBody = new LoginBodyLombokModel();
         loginBody.setEmail("eve.holt@reqres.in");
         loginBody.setPassword("cityslicka");
 
-    LoginResponseLombokModel response = given()
-            .log().uri()
-            .body(loginBody)
-            .contentType(JSON)
-            .when()
-            .post("https://reqres.in/api/login")
-            .then()
-            .log().status()
-            .log().body()
-            .statusCode(200)
-            .extract().as(LoginResponseLombokModel.class);
+        LoginResponseLombokModel response = step("Successful login", () ->
+                given(loginRequestSpec)
+                        .body(loginBody)
+                        .when()
+                        .post("https://reqres.in/api/login")
+                        .then()
+                        .log().status()
+                        .log().body()
+                        .statusCode(200)
+                        .extract().as(LoginResponseLombokModel.class));
 
         step("Verify response", () ->
-    assertThat(response.getToken()).isEqualTo("QpwL5tke4Pnpja7X4"));
-}
+                assertThat(response.getToken()).isEqualTo("QpwL5tke4Pnpja7X4"));
+    }
 
     @Test
     @DisplayName("Unsuccessful login")
     void unSuccessfulLoginWithMissingEmailTest() {
-        LoginBodyLombokModel UnsuccessfulBody = new LoginBodyLombokModel();
-        UnsuccessfulBody.setEmail("eve.holt@reqres.in");
-        UnsuccessfulBody.setPassword("cityslicka");
-        LoginResponseLombokModel response = given()
-                .log().uri()
-                .body(UnsuccessfulBody)
-                .contentType(JSON)
-                .when()
-                .post("https://reqres.in/api/login")
-                .then()
-                .log().status()
-                .log().body()
-                .statusCode(400)
-                .extract().as(LoginResponseLombokModel.class);
+        LoginBodyLombokModel unsuccessfulBody = new LoginBodyLombokModel();
+        unsuccessfulBody.setPassword("cityslicka");
+
+        ErrorModel errorModel = step("Login with missing email", () ->
+                        given(loginRequestSpec)
+                        .body(unsuccessfulBody)
+                        .when()
+                        .post("https://reqres.in/api/login")
+                        .then()
+                        .log().status()
+                        .log().body()
+                        .statusCode(400)
+                                .extract().as(ErrorModel.class));
+
         step("Check error text", () ->
-        assertThat(response.getToken()).isEqualTo("Missing email or username"));
+                assertThat(errorModel.getError()).isEqualTo("Missing email or username"));
     }
 
     @Test
     @DisplayName("Unsuccessful login with missing password")
     void unSuccessfulLoginWithMissingPasswordTest() {
-        LoginBodyLombokModel UnsuccessfulLoginBody = new LoginBodyLombokModel();
-        UnsuccessfulLoginBody.setEmail("eve.holt@reqres.in");
-        LoginResponseLombokModel response = given()
-                .log().uri()
-                .body(UnsuccessfulLoginBody)
-                .contentType(JSON)
+        LoginBodyLombokModel unsuccessfulLoginBody = new LoginBodyLombokModel();
+        unsuccessfulLoginBody.setEmail("eve.holt@reqres.in");
+        ErrorModel errorModel = step("Login with missing password", () ->
+                given(loginRequestSpec)
+                .body(unsuccessfulLoginBody)
                 .when()
                 .post("https://reqres.in/api/login")
                 .then()
                 .log().status()
                 .log().body()
                 .statusCode(400)
-                .body("error", is(null))
-                .extract().as(LoginResponseLombokModel.class);
-        step("Check response message", () ->
-                assertThat(response.getToken()).isEqualTo("Missing password"));
+                .extract().as(ErrorModel.class));
+
+        step("Check error text", () ->
+                assertThat(errorModel.getError()).isEqualTo("Missing password"));
     }
 
 
     @Test
     @DisplayName("Unsuccessful login with empty data")
     void unSuccessfulLoginWithEmptyDataTest() {
-        LoginBodyLombokModel UnsuccessfulEmptyBody = new LoginBodyLombokModel();
-        UnsuccessfulEmptyBody.setEmail(" ");
-        UnsuccessfulEmptyBody.setPassword(" ");
-        LoginResponseLombokModel response = given()
-                .log().uri()
-                .when()
-                .post("https://reqres.in/api/login")
-                .then()
-                .log().status()
-                .statusCode(415)
-                .extract().as(LoginResponseLombokModel.class);
-        step("Check response message", () ->
-                assertThat(response.getToken()).isEqualTo("Missing password"));
-    }
+        ValidatableResponse response = step("Send empty body reguest", () ->
+                given()
+                        .log().uri()
+                        .when()
+                        .post("https://reqres.in/api/login")
+                        .then()
+                        .log().status());
 
+        step("Check status code 415", () ->
+                response.statusCode(415)
+        );
+    }
 }
